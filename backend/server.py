@@ -282,7 +282,7 @@ async def update_workload_status(workload_id: str, status: str, execution_time: 
     updated_workload = Workload(**parse_from_mongo(workload))
     
     # Broadcast update
-    await manager.broadcast(json.dumps({"type": "workload_updated", "data": updated_workload.dict(), "timestamp": datetime.now(timezone.utc).isoformat()}))
+    await manager.broadcast(json.dumps({"type": "workload_updated", "data": prepare_for_mongo(updated_workload.dict()), "timestamp": datetime.now(timezone.utc).isoformat()}))
     
     return {"message": "Workload status updated successfully"}
 
