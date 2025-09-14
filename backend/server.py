@@ -210,7 +210,7 @@ async def update_edge_node(node_id: str, update: EdgeNodeUpdate):
     updated_node = EdgeNode(**parse_from_mongo(node))
     
     # Broadcast update
-    await manager.broadcast(json.dumps({"type": "node_updated", "data": updated_node.dict(), "timestamp": datetime.now(timezone.utc).isoformat()}))
+    await manager.broadcast(json.dumps({"type": "node_updated", "data": prepare_for_mongo(updated_node.dict()), "timestamp": datetime.now(timezone.utc).isoformat()}))
     
     return updated_node
 
