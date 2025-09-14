@@ -177,7 +177,7 @@ async def create_edge_node(node: EdgeNodeCreate):
     await db.edge_nodes.insert_one(node_data)
     
     # Broadcast update
-    await manager.broadcast(json.dumps({"type": "node_created", "data": edge_node.dict(), "timestamp": datetime.now(timezone.utc).isoformat()}))
+    await manager.broadcast(json.dumps({"type": "node_created", "data": prepare_for_mongo(edge_node.dict()), "timestamp": datetime.now(timezone.utc).isoformat()}))
     
     return edge_node
 
