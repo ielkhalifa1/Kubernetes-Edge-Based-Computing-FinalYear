@@ -305,7 +305,7 @@ async def create_security_event(event: SecurityEvent):
     await db.security_events.insert_one(event_data)
     
     # Broadcast security alert
-    await manager.broadcast(json.dumps({"type": "security_event", "data": event.dict(), "timestamp": datetime.now(timezone.utc).isoformat()}))
+    await manager.broadcast(json.dumps({"type": "security_event", "data": prepare_for_mongo(event.dict()), "timestamp": datetime.now(timezone.utc).isoformat()}))
     
     return event
 
