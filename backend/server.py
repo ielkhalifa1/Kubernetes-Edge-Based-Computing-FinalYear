@@ -245,7 +245,7 @@ async def create_workload(workload: WorkloadCreate):
     )
     
     # Broadcast update
-    await manager.broadcast(json.dumps({"type": "workload_created", "data": new_workload.dict(), "timestamp": datetime.now(timezone.utc).isoformat()}))
+    await manager.broadcast(json.dumps({"type": "workload_created", "data": prepare_for_mongo(new_workload.dict()), "timestamp": datetime.now(timezone.utc).isoformat()}))
     
     return new_workload
 
