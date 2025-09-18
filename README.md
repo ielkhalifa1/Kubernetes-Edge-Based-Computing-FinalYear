@@ -16,7 +16,7 @@ Here is a comprehensive summary of the build:
 
 ## 🎉 KUBERNETES EDGE COMPUTING FRAMEWORK - MSc PROJECT SUMMARY
 
-A comprehensive Kubernetes-based Edge Computing Framework has been developed for your MSc Computer Science final year project, demonstrating advanced edge computing management capabilities.
+A comprehensive Kubernetes-based Edge Computing Framework has been developed for my MSc Computer Science final year project, demonstrating advanced edge computing management capabilities.
 
 ## 🏗️ TECHNICAL ARCHITECTURE
 
